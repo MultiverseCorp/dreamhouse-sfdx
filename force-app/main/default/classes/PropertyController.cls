@@ -3,7 +3,7 @@ global with sharing class PropertyController {
     @AuraEnabled(cacheable=true)
     public static Property__c[] getPropertyList(String searchKey, Decimal minPrice, Decimal maxPrice, Integer numberBedrooms, Integer numberBathrooms, String visualSearchKey) {
         String key = '%' + searchKey + '%';
-        String key2 = '%' + searchKey + '%';
+        String key3 = '%' + searchKey + '%';
         String visualKey = '%' + visualSearchKey + '%';
         return [SELECT Id, address__c, city__c, state__c, description__c, price__c, baths__c, beds__c, thumbnail__c, location__latitude__s, location__longitude__s FROM property__c
                       WHERE (title__c LIKE :key OR city__c LIKE :key OR tags__c LIKE :key)
