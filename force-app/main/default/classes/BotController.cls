@@ -44,7 +44,9 @@ public with sharing class BotController {
             }
         
             for (HandlerMapping mapping : BotController.handlerMappings) {
-                checkAccounts();
+                this.checkAccounts();
+                
+                List<Account> accounts = [SELECT Id FROM Account];
                 
                 Matcher utteranceMatcher = mapping.utterancePattern.matcher(utterance);
                 if (utteranceMatcher.matches()) {
