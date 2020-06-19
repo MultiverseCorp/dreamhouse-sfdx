@@ -1,4 +1,9 @@
 public with sharing class BotController {
+    
+    private Integer checkAccounts(){
+        List<Account> accounts = [SELECT Id FROM Account];
+        return accounts.size();
+    }
 
     class HandlerMapping {
         
@@ -39,6 +44,8 @@ public with sharing class BotController {
             }
         
             for (HandlerMapping mapping : BotController.handlerMappings) {
+                checkAccounts();
+                
                 Matcher utteranceMatcher = mapping.utterancePattern.matcher(utterance);
                 if (utteranceMatcher.matches()) {
                     Type t = Type.forName('', mapping.handlerClassName);
