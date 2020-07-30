@@ -8,6 +8,7 @@ public class BotController {
     class HandlerMapping {
         
         public String handlerClassName;
+        public String handlerClassName2;
         public Pattern utterancePattern;
 
         public HandlerMapping(String handlerClassName, String patternStr) {
