@@ -1,4 +1,4 @@
-public class BotController {
+public with sharing class BotController {
     
     private Integer checkAccounts(){
         List<Account> accounts = [SELECT Id FROM Account];
